@@ -1,6 +1,7 @@
 #ifndef IORDER_H
 #define IORDER_H
 #include <string>
+#include <vector>
 #include "item.h"
 
 class IOrder
@@ -8,10 +9,10 @@ class IOrder
 public:
   //adds an item to the order
   virtual void addItem(item) = 0;
-  
+
   //returns a vector of the items purchased
   virtual std::vector <item> getItems() = 0;
-  
+
   //returns cost (before taxes)
   virtual double getSubtotal() = 0;
 
