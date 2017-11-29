@@ -1,11 +1,13 @@
 #include "order.h"
 
 order::order() {
+  notifyObservers();
   tax = 0.0725;
   closed = false;
 }
 
 order::order(double tax) {
+  notifyObservers();
   this->tax = tax;
   closed = false;
 }
@@ -13,6 +15,7 @@ order::order(double tax) {
 void order::addItem(item i) {
   if( !closed )
   {
+    notifyObservers();
     itemList.push_back(i);
   }
 }
@@ -38,6 +41,9 @@ double order::getTotal() {
 }
 
 double order::balance(double paid) {
+  if(closed == false) {
+    notifyObservers();
+  }
   closed = true;
   return getTotal() - paid;
 }

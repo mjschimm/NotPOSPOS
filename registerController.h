@@ -4,9 +4,10 @@
 #include "StoreInventory.h"
 #include "order.h"
 
-class registerController
+class registerController : public IObserver
 {
 private:
+  void update();
   StoreInventory *database;
   order *cart;
   cashierView screen;

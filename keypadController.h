@@ -3,9 +3,10 @@
 #include "order.h"
 #include "customerView.h"
 
-class keypadController
+class keypadController : public IObserver
 {
 private:
+  void update();
   order *cart;
   customerView display;
 public:
